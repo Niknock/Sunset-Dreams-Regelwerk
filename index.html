@@ -9,7 +9,9 @@
 <body>
     <header>
         <h1>Sunset Dreams Regelwerk</h1>
-        <button id="dark-mode-toggle">Dark Mode</button>
+        <button id="dark-mode-toggle">
+            <span id="dark-mode-icon" class="icon">🌙</span>
+        </button>
     </header>
     <nav>
         <a href="#charakter-erstellung">Charakter Erstellung</a>
@@ -234,28 +236,23 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Sunset Dreams in cooperation with <a href="https://discord.gg/cGPJYmrkbc" target="_blank" id="nkhd-link">NKHD Development</a></p>
+        &copy; 2024 Sunset Dreams in cooperation with <a href="https://discord.gg/cGPJYmrkbc" target="_blank" id="nkhd-link">NKHD Development</a>
     </footer>    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
             const body = document.body;
     
-            // Überprüfe den lokalen Speicher, um den Dark Mode Zustand beizubehalten
-            if (localStorage.getItem('dark-mode') === 'enabled') {
-                body.classList.add('dark-mode');
+            const toggleButton = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeIcon.textContent = '☀️';
+            } else {
+                darkModeIcon.textContent = '🌙';
             }
-    
-            darkModeToggle.addEventListener('click', function() {
-                body.classList.toggle('dark-mode');
-    
-                // Speichere den Zustand im lokalen Speicher
-                if (body.classList.contains('dark-mode')) {
-                    localStorage.setItem('dark-mode', 'enabled');
-                } else {
-                    localStorage.setItem('dark-mode', 'disabled');
-                }
-            });
+        });
     
             // Intersection Observer für Scroll-Animation
             const sections = document.querySelectorAll('section');
@@ -274,6 +271,15 @@
             sections.forEach(section => {
                 sectionObserver.observe(section);
             });
+        });
+
+        window.addEventListener('scroll', () => {
+            const footer = document.querySelector('footer');
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
         });
     </script>
      
