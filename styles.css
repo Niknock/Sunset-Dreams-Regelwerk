@@ -1,0 +1,170 @@
+/* Basis-Stile für den hellen Modus */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+}
+
+header {
+    background: linear-gradient(135deg, #ff5722, #ff9800); /* Orange zu Gelb Gradient */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+nav {
+    background: #ff5722; /* Orange */
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #e91e63; /* Pink */
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fafafa;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+section {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    color: #ffeb3b; /* Gelb */
+}
+
+h2 {
+    color: #e91e63; /* Pink */
+    border-bottom: 2px solid #ff5722; /* Orange */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+ul li:nth-child(even) {
+    background: #f9f9f9;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    section {
+        transition: none;
+    }
+}
+
+/* Dark Mode-Stile */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background: linear-gradient(135deg, #333, #555); /* Dunkelgrau Gradient */
+}
+
+body.dark-mode nav {
+    background: #1e1e1e;
+}
+
+body.dark-mode nav a {
+    color: #e0e0e0;
+}
+
+body.dark-mode main {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode section {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+}
+
+body.dark-mode ul li {
+    background: #333;
+}
+
+body.dark-mode footer {
+    background: #1f1f1f;
+}
+
+body.dark-mode h1 {
+    color: #ffeb3b;
+}
+
+body.dark-mode h2 {
+    color: #e91e63;
+    border-bottom: 2px solid #ff5722;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    background: #ff5722; /* Orange */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    background: #e91e63; /* Pink */
+}
